@@ -1,5 +1,6 @@
-#*.c
+*.c
 *.cpp
 *.s
 *.d
 *.o
+!.gitigore
