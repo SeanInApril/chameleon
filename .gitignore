@@ -3,4 +3,6 @@
 *.s
 *.d
 *.o
+*.a
+*.elf
 !.gitigore
