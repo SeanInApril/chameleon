@@ -34,13 +34,15 @@ ASRCS := $(wildcard *.s)
 AOBJS := $(subst .s,.o,$(ASRCS))
 OBJS  += $(AOBJS)
 
-
 DEPS := $(subst .c,.c.d,$(CSRCS))
 DEPS += $(subst .cpp,.cpp.d,$(CPPSRCS))
 DEPS += $(subst .s,.s.d,$(ASRCS))
 
 $(LIB): $(OBJS)
+#for empty directory
+ifneq ($(filter %.o,$(OBJS)),)
 	$(AR) rcs $@ $^
+endif
 
 define gen_deps
 	@set -e; rm -f $<.d; \
